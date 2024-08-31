@@ -8,3 +8,4 @@ vim.g.maplocalleader = "\\"
 
 require("config.lazy")
 require("config.telescope")
+require("config.neo-tree")
