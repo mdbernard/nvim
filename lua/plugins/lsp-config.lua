@@ -13,11 +13,11 @@ return {
                     -- Lua
                     "lua_ls",
                     -- Python
-                    "basedpyright",
                     "ruff_lsp",
                     -- Rust
                     "rust_analyzer",
                 },
+                automatic_installation = true
             })
         end,
     },
