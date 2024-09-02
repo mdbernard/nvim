@@ -9,6 +9,8 @@ vim.cmd("set relativenumber")
 vim.cmd("autocmd InsertEnter * :set number norelativenumber")
 vim.cmd("autocmd InsertLeave * :set relativenumber")
 
+vim.cmd("set scrolloff=8")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
