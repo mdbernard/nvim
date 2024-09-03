@@ -3,11 +3,13 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
-        "mfussenegger/nvim-dap-python",
+		"mfussenegger/nvim-dap-python",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
+
+		dapui.setup()
 
 		-- general setup
 		vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
@@ -27,9 +29,9 @@ return {
 		end
 
 		-- Python debugging
-        -- must `pip install debugpy` in the active virtual environment
-        local dap_python = require("dap-python")
-        dap_python.setup("python")
-        dap_python.test_runner = "pytest"
+		-- must `pip install debugpy` in the active virtual environment
+		local dap_python = require("dap-python")
+		dap_python.setup("python")
+		dap_python.test_runner = "pytest"
 	end,
 }
