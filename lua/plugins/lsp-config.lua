@@ -24,9 +24,18 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"kevinhwang91/nvim-ufo",
+		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+
+			-- Set up folding capabilities
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
 
 			-- Set up language-specific servers
 			lspconfig.lua_ls.setup({
@@ -41,6 +50,8 @@ return {
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 			})
+
+			require("ufo").setup()
 
 			-- Visual diagnostic settings
 			vim.diagnostic.config({
@@ -62,6 +73,7 @@ return {
 					vim.diagnostic.open_float(nil, opts)
 				end,
 			})
+
 			-- Create keymaps
 			vim.keymap.set("n", "gi", vim.lsp.buf.hover, {
 				desc = "Get info about the currently hovered symbol",

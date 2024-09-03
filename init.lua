@@ -20,6 +20,12 @@ vim.cmd("nnoremap <esc> :noh<return><esc>")
 -- Decrease updatetime significantly to improve LSP diagnostic speed
 vim.o.updatetime = 250
 
+-- Fold options for nvim-ufo
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
