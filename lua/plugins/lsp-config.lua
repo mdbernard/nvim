@@ -41,9 +41,15 @@ return {
                 capabilities = capabilities,
             })
 
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-            vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "gi", vim.lsp.buf.hover, {
+                desc = "Get info about the currently hovered symbol"
+            })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+                desc = "Go to the definition of the currently hovered symbol"
+            })
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
+                desc = "Show available code actions for the current cursor position"
+            })
         end,
     },
 }

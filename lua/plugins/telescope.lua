@@ -6,11 +6,12 @@ return {
         config = function()
             local builtin = require("telescope.builtin")
 
-            -- ff = "find files"
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-
-            -- ft = "find text"
-            vim.keymap.set("n", "<leader>ft", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>ff", builtin.find_files, {
+                desc = "Find files by name"
+            })
+            vim.keymap.set("n", "<leader>ft", builtin.live_grep, {
+                desc = "Find text across files"
+            })
         end
     },
     {

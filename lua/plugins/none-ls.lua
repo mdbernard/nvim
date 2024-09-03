@@ -18,7 +18,8 @@ return {
 			},
 		})
 
-		-- df = "do format"
-		vim.keymap.set("n", "<leader>df", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>df", vim.lsp.buf.format, {
+            desc = "Format the current file"
+        })
 	end,
 }
