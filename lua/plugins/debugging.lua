@@ -13,11 +13,11 @@ return {
 
 		-- general setup
 		vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {
-            desc = "Debugger: toggle breakpoint"
-        })
+			desc = "Debugger: toggle breakpoint",
+		})
 		vim.keymap.set("n", "<Leader>dc", dap.continue, {
-            desc = "Debugger: continue"
-        })
+			desc = "Debugger: continue",
+		})
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()

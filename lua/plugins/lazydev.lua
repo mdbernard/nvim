@@ -7,9 +7,9 @@ return {
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
 			},
 		},
-        config = function()
-            require("lazydev").setup()
-        end
+		config = function()
+			require("lazydev").setup()
+		end,
 	},
 	{ "Bilal2453/luvit-meta", lazy = true },
 }
