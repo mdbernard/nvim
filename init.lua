@@ -17,6 +17,9 @@ vim.cmd("set scrolloff=8")
 -- Stop highlighting search results after hitting ESC
 vim.cmd("nnoremap <esc> :noh<return><esc>")
 
+-- Decrease updatetime significantly to improve LSP diagnostic speed
+vim.o.updatetime = 250
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 

@@ -28,6 +28,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
+			-- Set up language-specific servers
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -41,6 +42,27 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Visual diagnostic settings
+			vim.diagnostic.config({
+				virtual_text = false, -- don't show diagnostics inline
+				float = { source = true },
+			})
+
+			-- show diagnostics in popup window when hovering
+			vim.api.nvim_create_autocmd("CursorHold", {
+				callback = function()
+					local opts = {
+						focusable = false,
+						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+						border = "rounded",
+						source = "always",
+						prefix = " ",
+						scope = "cursor",
+					}
+					vim.diagnostic.open_float(nil, opts)
+				end,
+			})
+			-- Create keymaps
 			vim.keymap.set("n", "gi", vim.lsp.buf.hover, {
 				desc = "Get info about the currently hovered symbol",
 			})
